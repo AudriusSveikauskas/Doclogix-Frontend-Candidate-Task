@@ -5,7 +5,7 @@ import SignIn from './pages/SignIn';
 import UserDashboard from './pages/UserDashboard';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/Doclogix-Frontend-Candidate-Task">
     <Routes>
       <Route path="/" element={<UserLayout />}>
         <Route index element={<UserDashboard />} />
