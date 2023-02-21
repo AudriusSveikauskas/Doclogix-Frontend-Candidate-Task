@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialMenu = {
-  selectedTab: '',
+  selectedTab: 'Upload',
   isDrawerOpen: false,
 };
 
