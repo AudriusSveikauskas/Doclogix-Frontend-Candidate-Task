@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Doclogix-Frontend-Candidate-Task/static/css/main.89e01944.css",
+    "main.js": "/Doclogix-Frontend-Candidate-Task/static/js/main.279594e2.js",
+    "static/js/787.6368428e.chunk.js": "/Doclogix-Frontend-Candidate-Task/static/js/787.6368428e.chunk.js",
+    "pdf.worker.js": "/Doclogix-Frontend-Candidate-Task/989c2edee4f6cd8760aec0f2069bf48e.js",
+    "static/media/under-construction.gif": "/Doclogix-Frontend-Candidate-Task/static/media/under-construction.fa62068b6037d5075c30.gif",
+    "index.html": "/Doclogix-Frontend-Candidate-Task/index.html",
+    "main.89e01944.css.map": "/Doclogix-Frontend-Candidate-Task/static/css/main.89e01944.css.map",
+    "main.279594e2.js.map": "/Doclogix-Frontend-Candidate-Task/static/js/main.279594e2.js.map",
+    "787.6368428e.chunk.js.map": "/Doclogix-Frontend-Candidate-Task/static/js/787.6368428e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89e01944.css",
+    "static/js/main.279594e2.js"
+  ]
+}
