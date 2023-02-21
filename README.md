@@ -4,6 +4,16 @@
 
 `#React` `#Typescript` `#Material UI` `#Redux` `#Axios`
 
+> # Sign-In Data:
+
+```
+username: rhallawellb
+
+password: esTkitT1r
+```
+
+or any user from here: [https://dummyjson.com/users](https://dummyjson.com/users)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
