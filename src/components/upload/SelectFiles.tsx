@@ -55,6 +55,12 @@ const SelectFiles = () => {
         }
       }
     });
+
+    if (uploadedFilesProps.length + files.length <= MAX_COUNT) {
+      handleAlert('success', 'File(s) uploaded successfully.');
+    } else {
+      handleAlert('error', `You can only add a maximum of ${MAX_COUNT} files`);
+    }
     if (!limitExceeded) setUploadedFiles(uploaded);
   };
 
