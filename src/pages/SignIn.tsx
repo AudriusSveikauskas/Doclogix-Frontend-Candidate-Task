@@ -71,13 +71,20 @@ const SignIn = () => {
     });
   };
 
+  const setUserAvatar = (link: string) => {
+    dispatch(userActions.setUserAvatar(link));
+  };
+
   const submitHandler = async (usr: string, pwd: string) => {
     const response = await signInUser(usr, pwd);
+
+    console.log(response);
 
     if (response.status === 200) {
       handleAlert('success', 'Signed in successfully.');
       setIsAuthenticated(true);
       setUserId(response.data.id);
+      setUserAvatar(response.data.image);
 
       if (rememberMe) {
         saveToLocalStorage({ username: usr, password: pwd });

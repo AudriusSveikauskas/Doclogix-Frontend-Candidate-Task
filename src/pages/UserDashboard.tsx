@@ -17,6 +17,8 @@ import MainMenu from '../components/menu/MainMenu';
 import { RootState } from '../store/store';
 import { menuActions } from '../store/menu/menu';
 import Upload from '../components/upload/Upload';
+import AccountSettings from './AccountSettings';
+import FakePage from './FakePage';
 
 const drawerWidth = 240;
 
@@ -96,6 +98,10 @@ const UserDashboard = () => {
     (state) => state.menu.isDrawerOpen,
   );
 
+  const userAvatar = useSelector<RootState, string>(
+    (state) => state.user.userAvatar,
+  );
+
   const setIsDrawerOpen = (value: boolean) => {
     dispatch(menuActions.setIsDrawerOpen(value));
   };
@@ -107,6 +113,10 @@ const UserDashboard = () => {
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
   };
+
+  const selectedTab = useSelector<RootState, string>(
+    (state) => state.menu.selectedTab,
+  );
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -146,8 +156,9 @@ const UserDashboard = () => {
             </Badge>
 
             <Avatar
-              alt="Remy Sharp"
-              src="https://mui.com/static/images/avatar/1.jpg"
+              sx={{ border: '1px solid #637381' }}
+              alt="Profile Photo"
+              src={userAvatar}
             />
           </Box>
         </Toolbar>
@@ -187,7 +198,26 @@ const UserDashboard = () => {
             padding: '30px',
           }}
         >
-          <Upload />
+          <Box display={selectedTab === 'Upload' ? 'block' : 'none'}>
+            <Upload />
+          </Box>
+
+          <Box display={selectedTab === 'Account settings' ? 'block' : 'none'}>
+            <AccountSettings />
+          </Box>
+
+          <Box
+            display={
+              selectedTab === 'Documents' ||
+              selectedTab === 'Inbox' ||
+              selectedTab === 'Sent' ||
+              selectedTab === 'Drafts'
+                ? 'block'
+                : 'none'
+            }
+          >
+            <FakePage />
+          </Box>
         </Box>
       </Box>
     </Box>

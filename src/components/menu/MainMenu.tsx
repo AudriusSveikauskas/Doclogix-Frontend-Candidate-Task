@@ -9,6 +9,7 @@ import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSnackbar, VariantType } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import { RootState } from '../../store/store';
 import removeFromLocalStorage from '../../services/localStorage/removeFromLocalStorage';
@@ -16,6 +17,7 @@ import { authActions } from '../../store/auth/auth';
 
 const MainMenu = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
   const isDrawerOpen = useSelector<RootState, boolean>(
