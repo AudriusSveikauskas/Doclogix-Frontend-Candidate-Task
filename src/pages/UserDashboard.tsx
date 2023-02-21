@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
+import {
+  styled, useTheme, Theme, CSSObject,
+} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -208,10 +210,10 @@ const UserDashboard = () => {
 
           <Box
             display={
-              selectedTab === 'Documents' ||
-              selectedTab === 'Inbox' ||
-              selectedTab === 'Sent' ||
-              selectedTab === 'Drafts'
+              selectedTab === 'Documents'
+              || selectedTab === 'Inbox'
+              || selectedTab === 'Sent'
+              || selectedTab === 'Drafts'
                 ? 'block'
                 : 'none'
             }

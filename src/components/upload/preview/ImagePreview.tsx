@@ -14,8 +14,8 @@ const ImagePreview = () => {
 
   return (
     <Box>
-      {selectedFile !== -1 &&
-      uploadedFilesProps[selectedFile].type !== 'pdf' ? (
+      {selectedFile !== -1
+      && uploadedFilesProps[selectedFile].type !== 'pdf' ? (
         <Box
           sx={{
             display: 'flex',
@@ -29,9 +29,9 @@ const ImagePreview = () => {
             style={{ maxWidth: '100%', maxHeight: '100%' }}
           />
         </Box>
-      ) : (
-        ''
-      )}
+        ) : (
+          ''
+        )}
     </Box>
   );
 };

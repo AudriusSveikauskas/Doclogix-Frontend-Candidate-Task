@@ -109,8 +109,8 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
 
           <Box
             display={
-              selectedFile !== -1 &&
-              selectedFile < uploadedFilesProps.length - 1
+              selectedFile !== -1
+              && selectedFile < uploadedFilesProps.length - 1
                 ? 'block'
                 : 'none'
             }
@@ -131,6 +131,7 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
           />
 
           <Box display={uploadedFilesProps.length > 0 ? 'block' : 'none'}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link
               to={uploadedFilesProps.length > 0 ? currFileURL : ''}
               target="_blank"

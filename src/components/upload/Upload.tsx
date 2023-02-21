@@ -27,10 +27,10 @@ const Upload = () => {
     dispatch(fileActions.setSelectedFile(index));
   };
 
-  const handleAccordionChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  // eslint-disable-next-line max-len
+  const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   useEffect(() => {
     if (uploadedFilesProps.length > 0) {

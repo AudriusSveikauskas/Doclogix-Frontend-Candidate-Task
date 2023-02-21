@@ -52,8 +52,8 @@ const PDFPreview = () => {
 
   return (
     <Box>
-      {selectedFile !== -1 &&
-      uploadedFilesProps[selectedFile].type === 'pdf' ? (
+      {selectedFile !== -1
+      && uploadedFilesProps[selectedFile].type === 'pdf' ? (
         <Box>
           <Box
             sx={{
@@ -98,9 +98,9 @@ const PDFPreview = () => {
             </Document>
           </Box>
         </Box>
-      ) : (
-        ''
-      )}
+        ) : (
+          ''
+        )}
     </Box>
   );
 };
