@@ -52,20 +52,37 @@ const PDFPreview = () => {
 
   return (
     <Box>
-      {selectedFile !== -1
-      && uploadedFilesProps[selectedFile].type === 'pdf' ? (
+      {selectedFile !== -1 &&
+      uploadedFilesProps[selectedFile].type === 'pdf' ? (
         <Box>
-          <Box sx={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, marginBottom: 2,
-          }}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 4,
+              marginBottom: 2,
+            }}
           >
-            <Fab disabled={pageNumber === 1} color="secondary" size="small" aria-label="prev" onClick={goToPrevPage}>
+            <Fab
+              disabled={pageNumber === 1}
+              color="secondary"
+              size="small"
+              aria-label="prev"
+              onClick={goToPrevPage}
+            >
               <KeyboardArrowLeftIcon />
             </Fab>
 
             <Typography>{`Page ${pageNumber} of ${numPages}`}</Typography>
 
-            <Fab disabled={pageNumber === numPages} color="secondary" size="small" aria-label="prev" onClick={goToNextPage}>
+            <Fab
+              disabled={pageNumber === numPages}
+              color="secondary"
+              size="small"
+              aria-label="prev"
+              onClick={goToNextPage}
+            >
               <KeyboardArrowRightIcon />
             </Fab>
           </Box>
@@ -81,9 +98,9 @@ const PDFPreview = () => {
             </Document>
           </Box>
         </Box>
-        ) : (
-          ''
-        )}
+      ) : (
+        ''
+      )}
     </Box>
   );
 };
