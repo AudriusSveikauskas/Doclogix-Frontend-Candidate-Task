@@ -65,6 +65,15 @@ declare global {
     username: string;
     password: string;
   }
+
+  interface IDocDetails {
+    index: number;
+    name: string;
+    type: string;
+    size: string;
+    lastModified: string;
+    fileURL: string;
+  }
 }
 
 export {};
