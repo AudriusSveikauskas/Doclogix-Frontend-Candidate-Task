@@ -44,6 +44,7 @@ const SelectFiles = () => {
     const uploaded = [...uploadedFiles];
     let limitExceeded = false;
 
+    // eslint-disable-next-line array-callback-return,consistent-return
     files.some((file) => {
       if (uploaded.findIndex((f) => f.name === file.name) === -1) {
         uploaded.push(file);
@@ -78,6 +79,7 @@ const SelectFiles = () => {
   useEffect(() => {
     const tempArr: IDocDetails[] = [];
 
+    // eslint-disable-next-line array-callback-return
     uploadedFiles.map((file, i) => {
       tempArr.push({
         index: i,

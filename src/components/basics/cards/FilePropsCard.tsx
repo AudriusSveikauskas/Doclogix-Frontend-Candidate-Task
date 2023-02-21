@@ -30,7 +30,9 @@ type FilePropsCardType = {
 };
 const FilePropsCard: React.FC<FilePropsCardType> = ({ fileProps }) => {
   const dispatch = useDispatch();
-  const { index, name, type, size, lastModified } = fileProps;
+  const {
+    index, name, type, size, lastModified,
+  } = fileProps;
 
   const showFilesType = useSelector<RootState, string>(
     (state) => state.file.showFilesType,
