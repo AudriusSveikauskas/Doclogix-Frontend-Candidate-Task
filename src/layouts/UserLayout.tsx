@@ -11,8 +11,7 @@ const UserLayout = () => {
   );
 
   useEffect(() => {
-    // pakeisti
-    if (isAuthenticated) {
+    if (!isAuthenticated) {
       navigate('/sign-in');
     }
   }, [isAuthenticated]);

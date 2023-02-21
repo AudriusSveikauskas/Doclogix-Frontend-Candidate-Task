@@ -7,14 +7,39 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSnackbar, VariantType } from 'notistack';
 import MenuItem from './MenuItem';
 import { RootState } from '../../store/store';
+import removeFromLocalStorage from '../../services/localStorage/removeFromLocalStorage';
+import { authActions } from '../../store/auth/auth';
 
 const MainMenu = () => {
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+
   const isDrawerOpen = useSelector<RootState, boolean>(
     (state) => state.menu.isDrawerOpen,
   );
+
+  const handleAlert = (msgVariant: VariantType, msgDesc: string) => {
+    enqueueSnackbar(msgDesc, {
+      variant: msgVariant,
+      preventDuplicate: true,
+      autoHideDuration: 4000,
+      anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
+    });
+  };
+
+  const setIsAuthenticated = (value: boolean) => {
+    dispatch(authActions.setIsAuthenticated(value));
+  };
+
+  const handleSignOut = () => {
+    removeFromLocalStorage('signInCredentials');
+    setIsAuthenticated(false);
+    handleAlert('success', 'Signed out successfully.');
+  };
 
   return (
     <Box>
@@ -54,7 +79,7 @@ const MainMenu = () => {
         </MenuItem>
 
         <MenuItem title="Sign out">
-          <LogoutIcon />
+          <LogoutIcon onClick={handleSignOut} />
         </MenuItem>
       </List>
     </Box>
