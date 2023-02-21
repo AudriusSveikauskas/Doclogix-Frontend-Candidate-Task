@@ -55,7 +55,6 @@ const FilesPreview = () => {
       >
         <PDFPreview />
         <ImagePreview />
-        <NoFileSelectedPreview />
       </Box>
 
       <Dialog

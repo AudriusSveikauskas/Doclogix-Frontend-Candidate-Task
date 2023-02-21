@@ -86,7 +86,6 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
             width: 'calc(100% - 68px)',
           }}
         >
-
           <Box
             display={selectedFile >= 1 ? 'block' : 'none'}
             sx={{ width: '24px' }}
@@ -110,8 +109,8 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
 
           <Box
             display={
-              selectedFile !== -1
-              && selectedFile < uploadedFilesProps.length - 1
+              selectedFile !== -1 &&
+              selectedFile < uploadedFilesProps.length - 1
                 ? 'block'
                 : 'none'
             }
@@ -135,6 +134,7 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
             <Link
               to={uploadedFilesProps.length > 0 ? currFileURL : ''}
               target="_blank"
+              download
             >
               <DownloadIcon sx={iconStyle} />
             </Link>
