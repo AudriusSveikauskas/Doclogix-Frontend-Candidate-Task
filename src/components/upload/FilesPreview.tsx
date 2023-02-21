@@ -43,7 +43,9 @@ const FilesPreview = () => {
 
       <Box
         sx={{
-          marginX: 4,
+          marginX: {
+            xs: 1, md: 2, lg: 3, xl: 4,
+          },
           marginBottom: 3,
           padding: 2,
           backgroundColor: '#e5e8eb',
