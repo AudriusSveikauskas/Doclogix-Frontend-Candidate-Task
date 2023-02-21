@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import { pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -14,6 +14,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const PDFPreview = () => {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState(1);
+  const [pageWidth, setPageWidth] = useState(0);
 
   const selectedFile = useSelector<RootState, number>(
     (state) => state.file.selectedFile,
@@ -45,6 +46,10 @@ const PDFPreview = () => {
     setPageNumber(1);
   }, [selectedFile]);
 
+  useEffect(() => {
+    setPageWidth(Math.trunc(window.innerWidth / 2));
+  }, [window.innerWidth]);
+
   return (
     <Box>
       {selectedFile !== -1
@@ -72,7 +77,7 @@ const PDFPreview = () => {
               file={uploadedFilesProps[selectedFile].fileURL}
               onLoadSuccess={onDocumentLoadSuccess}
             >
-              <Page pageNumber={pageNumber} />
+              <Page width={pageWidth} pageNumber={pageNumber} />
             </Document>
           </Box>
         </Box>
