@@ -78,8 +78,6 @@ const SignIn = () => {
   const submitHandler = async (usr: string, pwd: string) => {
     const response = await signInUser(usr, pwd);
 
-    console.log(response);
-
     if (response.status === 200) {
       handleAlert('success', 'Signed in successfully.');
       setIsAuthenticated(true);
