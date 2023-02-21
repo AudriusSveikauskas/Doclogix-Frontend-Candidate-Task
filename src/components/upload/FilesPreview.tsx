@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import {
   Box,
   Button,
@@ -10,7 +9,6 @@ import {
   DialogProps,
   DialogTitle,
 } from '@mui/material';
-import { RootState } from '../../store/store';
 import PDFPreview from './preview/PDFPreview';
 import ImagePreview from './preview/ImagePreview';
 import NoFileSelectedPreview from './preview/NoFileSelectedPreview';
@@ -19,14 +17,6 @@ import FilePreviewTitle from '../basics/FilePreviewTitle';
 const FilesPreview = () => {
   const [open, setOpen] = useState(false);
   const [scroll] = useState<DialogProps['scroll']>('paper');
-
-  const selectedFile = useSelector<RootState, number>(
-    (state) => state.file.selectedFile,
-  );
-
-  const uploadedFilesProps = useSelector<RootState, IDocDetails[]>(
-    (state) => state.file.uploadedFilesProps,
-  );
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -65,7 +55,7 @@ const FilesPreview = () => {
       >
         <PDFPreview />
         <ImagePreview />
-        {/* <NoFileSelectedPreview /> */}
+        <NoFileSelectedPreview />
       </Box>
 
       <Dialog

@@ -89,8 +89,6 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const UserDashboard = () => {
-  console.log('user dash');
-
   const theme = useTheme();
   const dispatch = useDispatch();
 

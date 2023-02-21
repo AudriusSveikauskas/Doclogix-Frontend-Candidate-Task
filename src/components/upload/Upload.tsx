@@ -16,8 +16,6 @@ import { RootState } from '../../store/store';
 import { fileActions } from '../../store/file/file';
 
 const Upload = () => {
-  console.log('Upload YYY');
-
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
   const dispatch = useDispatch();
 
