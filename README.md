@@ -2,7 +2,7 @@
 
 ![This is an image](https://github.com/AudriusSveikauskas/Doclogix-Frontend-Candidate-Task/blob/main/public/doc-img.jpg)
 
-`#React` `#Typescript` `#Material UI` `Redux` `Axios`
+`#React` `#Typescript` `#Material UI` `#Redux` `#Axios`
 
 ## Getting Started with Create React App
 
