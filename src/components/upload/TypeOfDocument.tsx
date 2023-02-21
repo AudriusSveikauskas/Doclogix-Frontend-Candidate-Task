@@ -39,7 +39,9 @@ const TypeOfDocument = () => {
   };
 
   useEffect(() => {
-    setShowFilesType(otherFormat);
+    if (otherFormat !== '') {
+      setShowFilesType(otherFormat);
+    }
   }, [otherFormat]);
 
   return (

@@ -61,7 +61,7 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
   }, [uploadedFilesProps, selectedFile]);
 
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <Box
         display={selectedFile === -1 ? 'block' : 'none'}
         sx={{ height: '94px' }}
@@ -75,7 +75,7 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
           marginY: 3,
         }}
       >
-        <Box sx={{ width: '68px' }} />
+        <Box />
 
         <Box
           sx={{
@@ -83,8 +83,10 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
             justifyContent: 'center',
             gap: 2,
             alignItems: 'center',
+            width: 'calc(100% - 68px)',
           }}
         >
+
           <Box
             display={selectedFile >= 1 ? 'block' : 'none'}
             sx={{ width: '24px' }}
@@ -95,14 +97,12 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
             />
           </Box>
 
-          <Box>
+          <Box maxWidth="calc(100% - 64px)">
             <Typography
               variant="h5"
               component="h5"
               color="text.secondary"
-              whiteSpace="nowrap"
-              overflow="hidden"
-              textOverflow="ellipsis"
+              noWrap
             >
               {currFileName}
             </Typography>
@@ -110,8 +110,8 @@ const FilePreviewTitle: React.FC<FilePreviewTitleProps> = ({
 
           <Box
             display={
-              selectedFile !== -1 &&
-              selectedFile < uploadedFilesProps.length - 1
+              selectedFile !== -1
+              && selectedFile < uploadedFilesProps.length - 1
                 ? 'block'
                 : 'none'
             }

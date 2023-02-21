@@ -11,13 +11,18 @@ import { RootState } from '../../store/store';
 const SelectFiles = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [fileLimit, setFileLimit] = useState(false);
+  const [acceptType, setAcceptType] = useState('application/pdf');
 
   const dispatch = useDispatch();
 
-  const MAX_COUNT = 5;
+  const MAX_COUNT = 10;
 
   const uploadedFilesProps = useSelector<RootState, IDocDetails[]>(
     (state) => state.file.uploadedFilesProps,
+  );
+
+  const showFilesType = useSelector<RootState, string>(
+    (state) => state.file.showFilesType,
   );
 
   const setUploadedFilesProps = (filesArr: IDocDetails[]) => {
@@ -71,6 +76,16 @@ const SelectFiles = () => {
     }
   }, [uploadedFilesProps]);
 
+  useEffect(() => {
+    if (showFilesType === 'pdf') {
+      setAcceptType('application/pdf');
+    } else if (showFilesType === '') {
+      setAcceptType('application/pdf, image/*');
+    } else {
+      setAcceptType(`image/${showFilesType}`);
+    }
+  }, [showFilesType]);
+
   return (
     <Box
       sx={{
@@ -82,7 +97,9 @@ const SelectFiles = () => {
         height: '100%',
       }}
     >
-      <Typography variant="h6">Select files</Typography>
+      <Typography variant="h6">
+        {`Select ${showFilesType !== '' ? `*.${showFilesType}` : ''} files`}
+      </Typography>
       <Typography>
         {'Drop files here or click '}
         <span
@@ -102,7 +119,7 @@ const SelectFiles = () => {
         id="fileUpload"
         type="file"
         multiple
-        accept="application/pdf, image/*"
+        accept={acceptType}
         onChange={handleFileEvent}
         disabled={fileLimit}
         title=" "

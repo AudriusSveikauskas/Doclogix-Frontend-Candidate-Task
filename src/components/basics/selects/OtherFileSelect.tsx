@@ -26,7 +26,7 @@ const OtherFileSelect: React.FC<OtherFileSelectProps> = ({
         <em>Other formats</em>
       </MenuItem>
       <MenuItem value="png">PNG</MenuItem>
-      <MenuItem value="jpg">JPG</MenuItem>
+      <MenuItem value="jpeg">JPG</MenuItem>
       <MenuItem value="gif">GIF</MenuItem>
     </Select>
   </FormControl>

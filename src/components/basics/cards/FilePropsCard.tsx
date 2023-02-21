@@ -56,7 +56,7 @@ const FilePropsCard: React.FC<FilePropsCardType> = ({ fileProps }) => {
         alignItems: 'center',
       }}
     >
-      <Box sx={{ width: '100%' }}>
+      <Box width="calc(100% - 85px)">
         <LightTooltip
           title={
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>

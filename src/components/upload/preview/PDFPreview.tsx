@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import { pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { useSelector } from 'react-redux';
-import { Box, Typography } from '@mui/material';
+import { Box, Fab, Typography } from '@mui/material';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { RootState } from '../../../store/store';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -38,26 +40,30 @@ const PDFPreview = () => {
     }
   };
 
+  useEffect(() => {
+    setNumPages(0);
+    setPageNumber(1);
+  }, [selectedFile]);
+
   return (
     <Box>
-      {selectedFile !== -1 &&
-      uploadedFilesProps[selectedFile].type === 'pdf' ? (
+      {selectedFile !== -1
+      && uploadedFilesProps[selectedFile].type === 'pdf' ? (
         <Box>
-          <Box
-            onClick={goToPrevPage}
-            sx={{ width: '50px', height: '50px', backgroundColor: 'red' }}
+          <Box sx={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, marginBottom: 2,
+          }}
           >
-            Prev
-          </Box>
+            <Fab disabled={pageNumber === 1} color="secondary" size="small" aria-label="prev" onClick={goToPrevPage}>
+              <KeyboardArrowLeftIcon />
+            </Fab>
 
-          <Box
-            onClick={goToNextPage}
-            sx={{ width: '50px', height: '50px', backgroundColor: 'green' }}
-          >
-            Next
-          </Box>
+            <Typography>{`Page ${pageNumber} of ${numPages}`}</Typography>
 
-          <Typography>{`Page ${pageNumber} of ${numPages}`}</Typography>
+            <Fab disabled={pageNumber === numPages} color="secondary" size="small" aria-label="prev" onClick={goToNextPage}>
+              <KeyboardArrowRightIcon />
+            </Fab>
+          </Box>
 
           <Box
             sx={{ marginX: 'auto', display: 'flex', justifyContent: 'center' }}
@@ -70,9 +76,9 @@ const PDFPreview = () => {
             </Document>
           </Box>
         </Box>
-      ) : (
-        ''
-      )}
+        ) : (
+          ''
+        )}
     </Box>
   );
 };
