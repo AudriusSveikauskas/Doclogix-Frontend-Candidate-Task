@@ -17,7 +17,6 @@ import { authActions } from '../../store/auth/auth';
 
 const MainMenu = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
   const isDrawerOpen = useSelector<RootState, boolean>(

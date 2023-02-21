@@ -85,7 +85,7 @@ const SignIn = () => {
       setIsAuthenticated(true);
       setUserId(response.data.id);
       setUserAvatar(response.data.image);
-
+      handleAlert('info', `Welcome Back, ${response.data.firstName}`);
       if (rememberMe) {
         saveToLocalStorage({ username: usr, password: pwd });
       }

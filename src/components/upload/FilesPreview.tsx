@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import PDFPreview from './preview/PDFPreview';
 import ImagePreview from './preview/ImagePreview';
-import NoFileSelectedPreview from './preview/NoFileSelectedPreview';
 import FilePreviewTitle from '../basics/FilePreviewTitle';
 
 const FilesPreview = () => {
@@ -20,7 +19,6 @@ const FilesPreview = () => {
 
   const handleClickOpen = () => {
     setOpen(true);
-    // setScroll(scrollType: DialogProps['scroll']);
   };
 
   const handleClose = () => {
